@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cor Aleatória</title>
+</head>
+<body>
+  <h1 id="cor">Clique no botão!</h1>
+  <button onclick="mudarCor()">Mudar Cor</button>
+
+  <script>
+    function mudarCor() {
+      const cor = "#" + Math.floor(Math.random()*16777215).toString(16);
+      document.body.style.backgroundColor = cor;
+      document.getElementById("cor").innerText = cor;
+    }
+  </script>
+</body>
+</html>
