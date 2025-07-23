@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+</head>
+<body>
+  <input type="number" id="num1">
+  <input type="number" id="num2">
+  <button onclick="somar()">Somar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function somar() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const soma = n1 + n2;
+      document.getElementById("resultado").innerText = "Resultado: " + soma;
+    }
+  </script>
+</body>
+</html>
