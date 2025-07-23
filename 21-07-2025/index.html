@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relógio</title>
+</head>
+<body>
+  <h1 id="relogio"></h1>
+
+  <script>
+    function atualizarRelogio() {
+      const agora = new Date();
+      document.getElementById("relogio").innerText = agora.toLocaleTimeString();
+    }
+    setInterval(atualizarRelogio, 1000);
+  </script>
+</body>
+</html>
