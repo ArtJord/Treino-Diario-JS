@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Data Atual</title></head>
+<body>
+  <h2 id="data"></h2>
+
+  <script>
+    const hoje = new Date();
+    const formatada = hoje.toLocaleDateString("pt-BR", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
+    });
+    document.getElementById("data").innerText = "Hoje é " + formatada;
+  </script>
+</body>
+</html>
