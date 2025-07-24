@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Contador Regressivo</title></head>
+<body>
+  <h1 id="timer">10</h1>
+  <button onclick="startCountdown()">Iniciar</button>
+
+  <script>
+    function startCountdown() {
+      let tempo = 10;
+      const h1 = document.getElementById("timer");
+
+      const intervalo = setInterval(() => {
+        tempo--;
+        h1.innerText = tempo;
+        if (tempo === 0) {
+          clearInterval(intervalo);
+          h1.innerText = "Tempo esgotado!";
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
