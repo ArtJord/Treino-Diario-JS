@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Número Aleatório</title></head>
+<body>
+  <h1 id="numero">?</h1>
+  <button onclick="sortear()">Sortear Número</button>
+
+  <script>
+    function sortear() {
+      const numero = Math.floor(Math.random() * 100) + 1;
+      document.getElementById("numero").innerText = numero;
+    }
+  </script>
+</body>
+</html>
