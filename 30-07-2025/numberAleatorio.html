@@ -1,25 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-  <title>Número Aleatório</title>
+  <meta charset="UTF-8">
+  <title>Gerador de Número Aleatório</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background-color: #eaad62; /* cor quente e suave */
+      background-image: url('imagens/img.png'); /* ajuste aqui o caminho real */
+      background-repeat: no-repeat;
+      background-position: center 30px;
+      background-size: 400px auto; /* imagem maior */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+      margin-top: 300px; /* empurra abaixo da imagem maior */
+    }
+
+    h2 {
+      color: #a94c28;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      border: 2px solid #e09e68;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #59be00;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #59be00;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #59be00;
+    }
+  </style>
 </head>
 <body>
-  <h2>Gerador de Número Aleatório</h2>
-  <input type="number" id="min" placeholder="Mínimo">
-  <input type="number" id="max" placeholder="Máximo">
-  <button onclick="gerar()">Gerar</button>
-  <p id="resultado"></p>
+  <div class="container">
+    <h2>🎲 Número Aleatório</h2>
+    <input type="number" id="min" placeholder="Mínimo">
+    <input type="number" id="max" placeholder="Máximo"><br>
+    <button onclick="gerar()">Gerar</button>
+    <p id="resultado"></p>
+  </div>
 
   <script>
     function gerar() {
       const min = parseInt(document.getElementById("min").value);
       const max = parseInt(document.getElementById("max").value);
+      const resultado = document.getElementById("resultado");
+
       if (isNaN(min) || isNaN(max) || min > max) {
-        document.getElementById("resultado").innerText = "Intervalo inválido.";
+        resultado.innerText = "❌ Intervalo inválido.";
         return;
       }
+
       const aleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
-      document.getElementById("resultado").innerText = `Número gerado: ${aleatorio}`;
+      resultado.innerText = `✅ Número gerado: ${aleatorio}`;
     }
   </script>
 </body>
