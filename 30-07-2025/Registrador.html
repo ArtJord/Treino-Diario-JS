@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contador Regressivo</title>
+</head>
+<body>
+  <h2>Contador Regressivo de 5 segundos</h2>
+  <button onclick="iniciar()">Iniciar</button>
+  <p id="contador"></p>
+
+  <script>
+    function iniciar() {
+      let segundos = 5;
+      const display = document.getElementById("contador");
+      const intervalo = setInterval(() => {
+        display.innerText = `Tempo restante: ${segundos}s`;
+        segundos--;
+        if (segundos < 0) {
+          clearInterval(intervalo);
+          display.innerText = "Tempo esgotado!";
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
