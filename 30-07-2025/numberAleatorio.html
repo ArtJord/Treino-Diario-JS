@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Número Aleatório</title>
+</head>
+<body>
+  <h2>Gerador de Número Aleatório</h2>
+  <input type="number" id="min" placeholder="Mínimo">
+  <input type="number" id="max" placeholder="Máximo">
+  <button onclick="gerar()">Gerar</button>
+  <p id="resultado"></p>
+
+  <script>
+    function gerar() {
+      const min = parseInt(document.getElementById("min").value);
+      const max = parseInt(document.getElementById("max").value);
+      if (isNaN(min) || isNaN(max) || min > max) {
+        document.getElementById("resultado").innerText = "Intervalo inválido.";
+        return;
+      }
+      const aleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+      document.getElementById("resultado").innerText = `Número gerado: ${aleatorio}`;
+    }
+  </script>
+</body>
+</html>
