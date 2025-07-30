@@ -1,6 +1,21 @@
-function contarPalavras(texto) {
-  const palavras = texto.trim().split(/\s+/);
-  return palavras.length;
-}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contador de Palavras</title>
+</head>
+<body>
+  <h2>Contador de Palavras</h2>
+  <textarea id="texto" rows="5" cols="40" placeholder="Digite aqui..."></textarea><br>
+  <button onclick="contar()">Contar Palavras</button>
+  <p id="resultado"></p>
 
-console.log(contarPalavras("Olá, este é um teste simples."));
+  <script>
+    function contar() {
+      const texto = document.getElementById("texto").value.trim();
+      const palavras = texto.split(/\s+/);
+      const total = texto ? palavras.length : 0;
+      document.getElementById("resultado").innerText = `Total de palavras: ${total}`;
+    }
+  </script>
+</body>
+</html>
