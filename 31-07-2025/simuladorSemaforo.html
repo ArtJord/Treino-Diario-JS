@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Semáforo</title>
+  <style>
+    body { background: #222; display: flex; flex-direction: column; align-items: center; padding: 40px; color: white; }
+    .semaforo { width: 80px; background: #111; padding: 20px; border-radius: 20px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
+    .luz { width: 50px; height: 50px; border-radius: 50%; background: #444; transition: background 0.3s; }
+    .ativo.vermelho { background: red; }
+    .ativo.amarelo { background: yellow; }
+    .ativo.verde { background: limegreen; }
+    .botoes { margin-top: 20px; display: flex; gap: 10px; }
+    button { padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>🚦 Semáforo</h2>
+  <div class="semaforo">
+    <div class="luz vermelho" id="vermelho"></div>
+    <div class="luz amarelo" id="amarelo"></div>
+    <div class="luz verde" id="verde"></div>
+  </div>
+  <div class="botoes">
+    <button onclick="ligar('vermelho')">Vermelho</button>
+    <button onclick="ligar('amarelo')">Amarelo</button>
+    <button onclick="ligar('verde')">Verde</button>
+  </div>
+
+  <script>
+    function ligar(cor) {
+      ['vermelho', 'amarelo', 'verde'].forEach(c => {
+        document.getElementById(c).classList.remove('ativo');
+      });
+      document.getElementById(cor).classList.add('ativo');
+    }
+  </script>
+</body>
+</html>
