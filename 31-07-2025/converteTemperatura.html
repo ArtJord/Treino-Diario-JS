@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Temperatura</title>
+  <style>
+    body { font-family: sans-serif; background: #d0eaff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px #aaa; width: 300px; text-align: center; }
+    input, select, button { width: 100%; margin: 10px 0; padding: 10px; }
+    #saida { margin-top: 20px; font-weight: bold; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🌡️ Conversor de Temperatura</h2>
+    <input type="number" id="valor" placeholder="Digite a temperatura" />
+    <select id="tipo">
+      <option value="cf">Celsius → Fahrenheit</option>
+      <option value="fc">Fahrenheit → Celsius</option>
+    </select>
+    <button onclick="converter()">Converter</button>
+    <div id="saida"></div>
+  </div>
+
+  <script>
+    function converter() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const tipo = document.getElementById('tipo').value;
+      let resultado = "";
+      if (isNaN(valor)) {
+        resultado = "Informe um número válido!";
+      } else {
+        if (tipo === "cf") {
+          resultado = `${valor} °C = ${(valor * 9/5 + 32).toFixed(2)} °F`;
+        } else {
+          resultado = `${valor} °F = ${((valor - 32) * 5/9).toFixed(2)} °C`;
+        }
+      }
+      document.getElementById('saida').textContent = resultado;
+    }
+  </script>
+</body>
+</html>
