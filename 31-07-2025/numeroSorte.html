@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorteador de Números</title>
+  <style>
+    body { background: #333; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+    h1 { margin-bottom: 20px; }
+    .resultado { font-size: 4em; margin: 20px 0; animation: pulse 1s ease-in-out infinite; }
+    button { padding: 10px 20px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; background: #00cc99; color: #fff; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎲 Sorteador de Números</h1>
+  <div class="resultado" id="resultado">--</div>
+  <button onclick="sortear()">Sortear número entre 1 e 100</button>
+
+  <script>
+    function sortear() {
+      const numero = Math.floor(Math.random() * 100) + 1;
+      document.getElementById('resultado').textContent = numero;
+    }
+  </script>
+</body>
+</html>
