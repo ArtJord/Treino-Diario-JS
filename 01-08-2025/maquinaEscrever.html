@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Typewriter Effect</title>
+  <style>
+    body { background: #222; color: #eee; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: monospace; }
+    #texto { font-size: 2em; border-right: 2px solid #eee; white-space: nowrap; overflow: hidden; }
+  </style>
+</head>
+<body>
+  <div id="texto"></div>
+
+  <script>
+    const frase = "Olá, seja bem-vindo ao meu perfil GitHub!";
+    let i = 0;
+    function digitar() {
+      if (i <= frase.length) {
+        document.getElementById('texto').textContent = frase.slice(0, i++);
+        setTimeout(digitar, 100);
+      }
+    }
+    digitar();
+  </script>
+</body>
+</html>
