@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Dado</title>
+  <style>
+    body { font-family: sans-serif; background: #282c34; color: white; text-align: center; padding-top: 100px; }
+    .dado { font-size: 100px; margin-bottom: 20px; transition: transform 0.3s ease; }
+    button { padding: 10px 20px; font-size: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="dado" id="dado">🎲</div>
+  <button onclick="rolar()">Rolar Dado</button>
+
+  <script>
+    const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+    function rolar() {
+      const dado = document.getElementById("dado");
+      dado.style.transform = "rotate(360deg)";
+      setTimeout(() => {
+        const face = faces[Math.floor(Math.random() * 6)];
+        dado.textContent = face;
+        dado.style.transform = "rotate(0deg)";
+      }, 300);
+    }
+  </script>
+</body>
+</html>
