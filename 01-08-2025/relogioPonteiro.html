@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    body { background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .relogio { width: 200px; height: 200px; border: 6px solid #fff; border-radius: 50%; position: relative; }
+    .ponteiro { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; background: white; }
+    .hora { width: 6px; height: 50px; }
+    .minuto { width: 4px; height: 70px; }
+    .segundo { width: 2px; height: 90px; background: red; }
+  </style>
+</head>
+<body>
+    <div class="relogio"></div>
+    <div class="ponteiro hora" id="hora"></div>
+    <div class="ponteiro minuto" id="minuto"></div>
+    <div class="ponteiro segundo" id="segundo"></div>
+
+    <script>
+        function atualizarRelogio(){
+            const agora = new Date();
+            const h = agora.getHours() %12;
+            const m = agora.getMinutes();
+            const s = agora.getSeconds();
+
+             document.getElementById('hora').style.transform = `rotate(${h * 30 + m / 2}deg)`;
+      document.getElementById('minuto').style.transform = `rotate(${m * 6}deg)`;
+      document.getElementById('segundo').style.transform = `rotate(${s * 6}deg)`;
+    }
+
+    setInterval(atualizarRelogio, 1000);
+    atualizarRelogio();
+
+    </script>
+    
+</body>
+</html>
