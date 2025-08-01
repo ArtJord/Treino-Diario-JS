@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <style>
+    body { background: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: Arial; }
+    .calc { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #aaa; }
+    input, select, button { margin: 5px; padding: 10px; width: 100%; font-size: 16px; }
+    #resultado { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="number" id="n1" placeholder="Número 1" />
+    <input type="number" id="n2" placeholder="Número 2" />
+    <select id="op">
+      <option value="+">Somar</option>
+      <option value="-">Subtrair</option>
+      <option value="*">Multiplicar</option>
+      <option value="/">Dividir</option>
+    </select>
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcular() {
+      const n1 = parseFloat(document.getElementById('n1').value);
+      const n2 = parseFloat(document.getElementById('n2').value);
+      const op = document.getElementById('op').value;
+      let res = 0;
+
+      if (isNaN(n1) || isNaN(n2)) {
+        res = "Digite dois números válidos.";
+      } else {
+        res = eval(`${n1} ${op} ${n2}`);
+      }
+
+      document.getElementById('resultado').textContent = `Resultado: ${res}`;
+    }
+  </script>
+</body>
+</html>
