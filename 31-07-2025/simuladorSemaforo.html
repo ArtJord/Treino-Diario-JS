@@ -2,38 +2,98 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Simulador de Semáforo</title>
+  <title>Semáforo Automático</title>
   <style>
-    body { background: #222; display: flex; flex-direction: column; align-items: center; padding: 40px; color: white; }
-    .semaforo { width: 80px; background: #111; padding: 20px; border-radius: 20px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
-    .luz { width: 50px; height: 50px; border-radius: 50%; background: #444; transition: background 0.3s; }
-    .ativo.vermelho { background: red; }
-    .ativo.amarelo { background: yellow; }
-    .ativo.verde { background: limegreen; }
-    .botoes { margin-top: 20px; display: flex; gap: 10px; }
-    button { padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .semaforo {
+      width: 100px;
+      background: #222;
+      padding: 25px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .luz {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #444;
+      opacity: 0.3;
+      transition: background 0.5s ease, opacity 1s ease;
+    }
+
+    .vermelho.ativo {
+      background: red;
+      opacity: 1;
+    }
+
+    .amarelo.ativo {
+      background: yellow;
+      opacity: 1;
+    }
+
+    .verde.ativo {
+      background: limegreen;
+      opacity: 1;
+    }
+
+    p {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #888;
+    }
   </style>
 </head>
 <body>
-  <h2>🚦 Semáforo</h2>
+  <h1>🚦 Semáforo Automático</h1>
   <div class="semaforo">
     <div class="luz vermelho" id="vermelho"></div>
     <div class="luz amarelo" id="amarelo"></div>
     <div class="luz verde" id="verde"></div>
   </div>
-  <div class="botoes">
-    <button onclick="ligar('vermelho')">Vermelho</button>
-    <button onclick="ligar('amarelo')">Amarelo</button>
-    <button onclick="ligar('verde')">Verde</button>
-  </div>
+  <p>Cada luz fica acesa por 5 segundos</p>
 
   <script>
-    function ligar(cor) {
-      ['vermelho', 'amarelo', 'verde'].forEach(c => {
-        document.getElementById(c).classList.remove('ativo');
-      });
-      document.getElementById(cor).classList.add('ativo');
+    const luzes = {
+      vermelho: document.getElementById('vermelho'),
+      amarelo: document.getElementById('amarelo'),
+      verde: document.getElementById('verde')
+    };
+
+    const ordem = ['vermelho', 'verde', 'amarelo'];
+    let atual = 0;
+
+    function atualizarSemaforo() {
+      // Remove "ativo" de todas
+      Object.values(luzes).forEach(el => el.classList.remove('ativo'));
+
+      // Adiciona "ativo" à atual
+      const corAtual = ordem[atual];
+      luzes[corAtual].classList.add('ativo');
+
+      // Próxima cor
+      atual = (atual + 1) % ordem.length;
     }
+
+    atualizarSemaforo(); // iniciar de imediato
+    setInterval(atualizarSemaforo, 5000); // troca a cada 5s
   </script>
 </body>
 </html>
