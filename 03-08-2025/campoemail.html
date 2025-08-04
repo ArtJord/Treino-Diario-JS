@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Validação de E-mail</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    input { padding: 10px; width: 250px; }
+  </style>
+</head>
+<body>
+  <h1>Verificar E-mail</h1>
+  <input type="email" id="email" placeholder="Digite seu e-mail">
+  <button onclick="validar()">Validar</button>
+  <p id="msg"></p>
+
+  <script>
+    function validar() {
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('msg');
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.textContent = "E-mail válido ✅";
+        msg.style.color = "green";
+      } else {
+        msg.textContent = "E-mail inválido ❌";
+        msg.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
