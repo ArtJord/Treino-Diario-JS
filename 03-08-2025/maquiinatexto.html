@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Texto Digitando</title>
+  <style>
+    body { font-family: monospace; text-align: center; padding: 50px; }
+    #texto { font-size: 24px; white-space: pre; }
+  </style>
+</head>
+<body>
+  <h1>Texto Digitando</h1>
+  <div id="texto"></div>
+
+  <script>
+    const texto = "Olá! Este texto está sendo digitado...";
+    let i = 0;
+    function digitar() {
+      if (i < texto.length) {
+        document.getElementById('texto').textContent += texto[i];
+        i++;
+        setTimeout(digitar, 100);
+      }
+    }
+    digitar();
+  </script>
+</body>
+</html>
