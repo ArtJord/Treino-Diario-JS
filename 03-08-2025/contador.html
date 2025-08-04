@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contador</title>
+  <style>
+    body { text-align: center; padding: 50px; font-family: sans-serif; }
+    button { margin: 5px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <h1>Contador</h1>
+  <h2 id="count">0</h2>
+  <button onclick="alterar(1)">+</button>
+  <button onclick="alterar(-1)">-</button>
+  <button onclick="resetar()">Zerar</button>
+
+  <script>
+    let count = 0;
+    const el = document.getElementById('count');
+
+    function alterar(valor) {
+      count += valor;
+      el.textContent = count;
+    }
+
+    function resetar() {
+      count = 0;
+      el.textContent = count;
+    }
+  </script>
+</body>
+</html>
