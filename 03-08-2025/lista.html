@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Tarefas</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Lista de Tarefas</h1>
+  <input type="text" id="tarefa" placeholder="Nova tarefa">
+  <button onclick="adicionar()">Adicionar</button>
+  <ul id="lista"></ul>
+
+  <script>
+    function adicionar() {
+      const valor = document.getElementById('tarefa').value;
+      if (valor.trim() === "") return;
+      const li = document.createElement('li');
+      li.textContent = valor;
+      document.getElementById('lista').appendChild(li);
+      document.getElementById('tarefa').value = "";
+    }
+  </script>
+</body>
+</html>
+
