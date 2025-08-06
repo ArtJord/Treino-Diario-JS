@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cor de Fundo</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    button { padding: 10px 15px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Mudar Cor de Fundo</h1>
+  <button onclick="mudarCor()">Clique aqui</button>
+
+  <script>
+    function mudarCor() {
+      const cores = ["#f8b400", "#00b894", "#0984e3", "#d63031", "#6c5ce7"];
+      const aleatoria = cores[Math.floor(Math.random() * cores.length)];
+      document.body.style.backgroundColor = aleatoria;
+    }
+  </script>
+</body>
+</html>
