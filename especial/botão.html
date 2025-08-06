@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Botão Impossível</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      position: relative;
+    }
+
+    #botao {
+      position: absolute;
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="botao">Tente clicar 😈</button>
+
+  <script>
+    const botao = document.getElementById('botao');
+    const fugaDistancia = 120;
+
+    function moverParaLugarAleatorio() {
+      const largura = window.innerWidth - botao.offsetWidth;
+      const altura = window.innerHeight - botao.offsetHeight;
+
+      const x = Math.random() * largura;
+      const y = Math.random() * altura;
+
+      botao.style.left = `${x}px`;
+      botao.style.top = `${y}px`;
+    }
+
+    function verificarProximidade(e) {
+      const rect = botao.getBoundingClientRect();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const botaoX = rect.left + rect.width / 2;
+      const botaoY = rect.top + rect.height / 2;
+
+      const dx = mouseX - botaoX;
+      const dy = mouseY - botaoY;
+      const distancia = Math.sqrt(dx * dx + dy * dy);
+
+      if (distancia < fugaDistancia) {
+        moverParaLugarAleatorio();
+      }
+    }
+
+    // Movimento contínuo enquanto o mouse estiver por perto
+    document.addEventListener('mousemove', verificarProximidade);
+
+    // Se conseguir clicar, mostra vitória
+    botao.addEventListener('click', () => {
+      alert("🎉 Você conseguiu! Parabéns! 🎉");
+    });
+
+    moverParaLugarAleatorio(); // posição inicial
+  </script>
+
+</body>
+</html>

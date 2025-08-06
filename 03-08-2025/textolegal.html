@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Texto Interativo</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    p { font-size: 24px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Clique para mudar o texto</h1>
+  <p id="mensagem" onclick="mudarTexto()">Clique aqui!</p>
+
+  <script>
+    function mudarTexto() {
+      const mensagem = document.getElementById('mensagem');
+      mensagem.textContent = "Você clicou no texto!";
+    }
+  </script>
+</body>
+</html>
