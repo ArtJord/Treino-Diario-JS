@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador Regressivo</title>
+  <style>
+    body { background: #111; color: #0f0; font-family: monospace; text-align: center; margin-top: 100px; }
+    h1 { font-size: 48px; }
+    input { font-size: 20px; padding: 10px; margin: 10px; }
+    button { padding: 10px 20px; font-size: 18px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1 id="timer">00:00</h1>
+  <input type="number" id="minutos" placeholder="Minutos" min="1" />
+  <button onclick="iniciarContador()">Iniciar</button>
+
+  <script>
+    let intervalo;
+
+    function iniciarContador() {
+      clearInterval(intervalo);
+      const minutos = parseInt(document.getElementById('minutos').value);
+      let tempo = minutos * 60;
+
+      intervalo = setInterval(() => {
+        const min = Math.floor(tempo / 60).toString().padStart(2, '0');
+        const seg = (tempo % 60).toString().padStart(2, '0');
+        document.getElementById('timer').textContent = `${min}:${seg}`;
+        if (tempo <= 0) clearInterval(intervalo);
+        tempo--;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
